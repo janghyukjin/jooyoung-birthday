@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>주영아, 생일 축하해! 🎂</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jua&family=Black+Han+Sans&family=Noto+Sans+KR:wght@300;400;700&family=Great+Vibes&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Jua', sans-serif;
+      overflow-x: hidden;
+      background: linear-gradient(180deg, #87CEEB 0%, #B0E0E6 25%, #C8E6C9 50%, #FFF8E1 75%, #FFFDE7 100%);
+      color: #444;
+      position: relative;
+    }
+
+    /* Clouds */
+    .cloud {
+      position: fixed;
+      background: white;
+      border-radius: 50px;
+      opacity: 0.8;
+      z-index: 1;
+    }
+    .cloud::before, .cloud::after {
+      content: '';
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+    }
+    .cloud-1 {
+      width: 120px; height: 40px;
+      top: 8%; left: -150px;
+      animation: cloudDrift 18s linear infinite;
+    }
+    .cloud-1::before { width: 50px; height: 50px; top: -25px; left: 20px; }
+    .cloud-1::after { width: 70px; height: 55px; top: -30px; left: 50px; }
+    .cloud-2 {
+      width: 160px; height: 50px;
+      top: 15%; left: -200px;
+      animation: cloudDrift 25s linear infinite 5s;
+      opacity: 0.6;
+    }
+    .cloud-2::before { width: 65px; height: 60px; top: -30px; left: 25px; }
+    .cloud-2::after { width: 80px; height: 65px; top: -35px; left: 60px; }
+    .cloud-3 {
+      width: 100px; height: 35px;
+      top: 5%; left: -130px;
+      animation: cloudDrift 22s linear infinite 10s;
+      opacity: 0.7;
+    }
+    .cloud-3::before { width: 45px; height: 45px; top: -22px; left: 15px; }
+    .cloud-3::after { width: 55px; height: 48px; top: -28px; left: 40px; }
+
+    @keyframes cloudDrift {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(100vw + 300px)); }
+    }
+
+    /* Sun */
+    .sun {
+      position: fixed;
+      top: 5%; right: 10%;
+      width: 80px; height: 80px;
+      background: #FFD700;
+      border-radius: 50%;
+      box-shadow: 0 0 60px #FFD700, 0 0 120px rgba(255,215,0,0.3);
+      z-index: 0;
+      animation: sunPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes sunPulse {
+      0%, 100% { box-shadow: 0 0 60px #FFD700, 0 0 120px rgba(255,215,0,0.3); }
+      50% { box-shadow: 0 0 80px #FFD700, 0 0 160px rgba(255,215,0,0.4); }
+    }
+
+    /* Floating petals */
+    .petal {
+      position: fixed;
+      font-size: 1.5rem;
+      z-index: 1;
+      pointer-events: none;
+      animation: petalFall linear forwards;
+    }
+
+    @keyframes petalFall {
+      0% { opacity: 1; transform: translateY(-20px) rotate(0deg) translateX(0); }
+      25% { transform: translateY(25vh) rotate(90deg) translateX(30px); }
+      50% { transform: translateY(50vh) rotate(180deg) translateX(-20px); }
+      75% { transform: translateY(75vh) rotate(270deg) translateX(25px); }
+      100% { opacity: 0; transform: translateY(105vh) rotate(360deg) translateX(-10px); }
+    }
+
+    /* Butterflies */
+    .butterfly {
+      position: fixed;
+      font-size: 1.4rem;
+      z-index: 2;
+      pointer-events: none;
+      animation: butterflyPath linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes butterflyPath {
+      0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+      25% { transform: translate(60px, -40px) rotate(10deg) scale(1.1); }
+      50% { transform: translate(120px, 10px) rotate(-5deg) scale(0.9); }
+      75% { transform: translate(180px, -30px) rotate(8deg) scale(1.05); }
+      100% { transform: translate(calc(100vw + 50px), 0) rotate(0deg) scale(1); }
+    }
+
+    /* Sections */
+    .section {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    /* Intro card */
+    .intro-card {
+      background: linear-gradient(145deg, rgba(255,253,231,0.92), rgba(200,230,201,0.88));
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 50px 30px;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      animation: cardFloat 4s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #87CEEB, #98D8A0, #FFD700, #FF9AA2, #87CEEB);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    @keyframes cardFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .dday {
+      display: inline-block;
+      background: linear-gradient(135deg, #66BB6A, #43A047);
+      color: white;
+      padding: 4px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      animation: ddayPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes ddayPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .cake-icon {
+      font-size: 4rem;
+      margin-bottom: 15px;
+      animation: cakeBounce 2s ease-in-out infinite;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    @keyframes cakeBounce {
+      0%, 100% { transform: rotate(-3deg) scale(1); }
+      25% { transform: rotate(3deg) scale(1.08); }
+      50% { transform: rotate(-2deg) scale(1); }
+      75% { transform: rotate(2deg) scale(1.04); }
+    }
+
+    .intro-label {
+      font-size: 0.95rem;
+      color: #66BB6A;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 700;
+    }
+
+    .intro-name {
+      font-family: 'Black Han Sans', sans-serif;
+      font-size: clamp(1.6rem, 6vw, 2.6rem);
+      color: #2E7D32;
+      margin-bottom: 5px;
+      word-break: keep-all;
+    }
+
+    .intro-sub {
+      font-size: 1.1rem;
+      color: #888;
+      margin-bottom: 25px;
+    }
+
+    .scroll-hint {
+      font-size: 1rem;
+      color: #98D8A0;
+      animation: bounceDown 1.5s ease-in-out infinite;
+      margin-top: 20px;
+    }
+
+    .scroll-arrow {
+      display: block;
+      font-size: 1.5rem;
+      margin-top: 5px;
+    }
+
+    @keyframes bounceDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+    /* Cards */
+    .detail-section {
+      min-height: 100vh;
+      padding: 60px 20px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(255,253,231,0.90), rgba(200,230,201,0.85));
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 40px 30px;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      margin-top: 40px;
+    }
+
+    .card:first-child { margin-top: 0; }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-icon { font-size: 3rem; margin-bottom: 15px; }
+
+    .card-title {
+      font-family: 'Black Han Sans', sans-serif;
+      font-size: 1.8rem;
+      color: #2E7D32;
+      margin-bottom: 20px;
+    }
+
+    /* Info rows */
+    .info-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px dashed rgba(102,187,106,0.3);
+      font-size: 1.15rem;
+      color: #555;
+    }
+
+    .info-row:last-child { border-bottom: none; }
+
+    .info-emoji { font-size: 1.5rem; min-width: 35px; }
+    .info-text { text-align: left; }
+
+    .info-label {
+      font-size: 0.8rem;
+      color: #999;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .info-value {
+      font-size: 1.15rem;
+      color: #333;
+      font-weight: bold;
+    }
+
+    /* Restaurant highlight */
+    .restaurant-highlight {
+      background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(232,245,233,0.6));
+      border: 1px solid rgba(102,187,106,0.2);
+      border-radius: 16px;
+      padding: 24px 20px;
+      margin: 20px 0 10px;
+    }
+
+    .michelin-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #FF8A65, #FF7043);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      animation: badgeGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes badgeGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,138,101,0.3); }
+      50% { box-shadow: 0 0 15px 3px rgba(255,138,101,0.2); }
+    }
+
+    .restaurant-name {
+      font-family: 'Black Han Sans', sans-serif;
+      font-size: 1.8rem;
+      color: #2E7D32;
+      margin-bottom: 2px;
+    }
+
+    .restaurant-name-en {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.3rem;
+      color: #66BB6A;
+      margin-bottom: 10px;
+    }
+
+    .restaurant-desc {
+      font-size: 0.95rem;
+      color: #777;
+      line-height: 1.6;
+    }
+
+    /* Location mini card */
+    .location-card {
+      margin-top: 18px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(241,248,233,0.7));
+      border: 1px solid rgba(102,187,106,0.15);
+      border-radius: 16px;
+      padding: 20px;
+      position: relative;
+    }
+
+    .location-address {
+      font-size: 1rem;
+      color: #444;
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+
+    .location-routes {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .location-route {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.6);
+      border-radius: 12px;
+    }
+
+    .route-icon {
+      font-size: 1.6rem;
+      min-width: 36px;
+      text-align: center;
+    }
+
+    .route-info { text-align: left; }
+
+    .route-station {
+      font-size: 0.95rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .route-detail {
+      font-size: 0.8rem;
+      color: #999;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .route-time {
+      margin-left: auto;
+      background: linear-gradient(135deg, #66BB6A, #43A047);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Weather card */
+    .weather-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .weather-item {
+      background: rgba(255,255,255,0.5);
+      border-radius: 16px;
+      padding: 16px 10px;
+      text-align: center;
+    }
+
+    .weather-item.warm { background: rgba(255,248,225,0.6); }
+    .weather-item.fresh { background: rgba(232,245,233,0.6); }
+
+    .weather-item-icon { font-size: 1.8rem; margin-bottom: 6px; }
+
+    .weather-item-label {
+      font-size: 0.75rem;
+      color: #999;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .weather-item-value {
+      font-size: 1.05rem;
+      color: #333;
+      font-weight: bold;
+      margin-top: 2px;
+    }
+
+    .weather-tip {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: rgba(255,248,225,0.6);
+      border-radius: 12px;
+      font-size: 0.95rem;
+      color: #666;
+      text-align: left;
+      line-height: 1.5;
+    }
+
+    /* Menu card */
+    .menu-card-inner {
+      margin-top: 15px;
+      background: linear-gradient(135deg, rgba(255,253,231,0.7), rgba(241,248,233,0.7));
+      border: 1px solid rgba(102,187,106,0.15);
+      border-radius: 20px;
+      padding: 28px 22px;
+    }
+
+    .menu-card-inner::before {
+      content: '~ Menu ~';
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.4rem;
+      color: #66BB6A;
+      display: block;
+      margin-bottom: 18px;
+    }
+
+    .menu-divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #A5D6A7, transparent);
+      margin: 10px auto;
+    }
+
+    .menu-item { padding: 10px 0; }
+
+    .menu-item-name {
+      font-size: 1.05rem;
+      color: #444;
+      font-weight: bold;
+      margin-bottom: 2px;
+    }
+
+    .menu-item-desc {
+      font-size: 0.8rem;
+      color: #aaa;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .menu-item-emoji { font-size: 1.3rem; margin-bottom: 4px; }
+
+    .menu-signature {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed #C8E6C9;
+    }
+
+    .menu-signature-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #FFD700, #FFA000);
+      color: white;
+      padding: 2px 10px;
+      border-radius: 10px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      animation: signatureShine 2s ease-in-out infinite;
+    }
+
+    @keyframes signatureShine {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,215,0,0.3); }
+      50% { box-shadow: 0 0 12px 2px rgba(255,215,0,0.2); }
+    }
+
+    .wine-option {
+      margin-top: 18px;
+      padding: 14px 16px;
+      background: linear-gradient(135deg, rgba(255,243,224,0.7), rgba(251,233,231,0.7));
+      border: 1px dashed #FFAB91;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .wine-emoji { font-size: 2rem; }
+    .wine-text { text-align: left; }
+
+    .wine-label {
+      font-size: 0.75rem;
+      color: #FF8A65;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .wine-value {
+      font-size: 0.95rem;
+      color: #555;
+      margin-top: 2px;
+    }
+
+    /* RSVP */
+    .rsvp-section {
+      min-height: 80vh;
+      padding: 60px 20px;
+    }
+
+    .rsvp-title {
+      font-family: 'Black Han Sans', sans-serif;
+      font-size: 1.8rem;
+      color: #2E7D32;
+      margin-bottom: 10px;
+    }
+
+    .rsvp-sub {
+      font-size: 1rem;
+      color: #aaa;
+      margin-bottom: 30px;
+    }
+
+    .rsvp-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .rsvp-btn {
+      padding: 16px 32px;
+      font-family: 'Jua', sans-serif;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-yes {
+      background: linear-gradient(135deg, #66BB6A, #98D8A0);
+      color: white;
+      box-shadow: 0 6px 20px rgba(102,187,106,0.3);
+    }
+
+    .btn-yes:hover {
+      transform: scale(1.08) translateY(-2px);
+      box-shadow: 0 10px 30px rgba(102,187,106,0.4);
+    }
+
+    .btn-no {
+      background: rgba(255,255,255,0.5);
+      color: #bbb;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      font-size: 0.9rem;
+    }
+
+    .btn-no:hover {
+      transform: scale(0.95);
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* Response overlay — surprise letter */
+    .response-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s;
+      background: linear-gradient(135deg, rgba(168,237,234,0.95), rgba(152,216,160,0.95), rgba(253,203,110,0.95));
+      background-size: 400% 400%;
+      animation: celebBg 4s ease infinite;
+      backdrop-filter: blur(20px);
+      overflow-y: auto;
+      padding: 40px 20px;
+    }
+
+    .response-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .response-overlay.sad {
+      background: linear-gradient(135deg, rgba(60,60,80,0.97), rgba(40,40,55,0.97));
+    }
+
+    .response-overlay.sad .response-text { color: #ccc; font-size: clamp(1.4rem, 4vw, 1.8rem); }
+    .response-overlay.sad .response-sub { color: #999; font-size: 1.05rem; }
+
+    @keyframes celebBg {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .response-emoji {
+      font-size: 5rem;
+      animation: responsePop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+    }
+
+    .response-text {
+      font-family: 'Black Han Sans', sans-serif;
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      color: #2E7D32;
+      margin-top: 15px;
+      animation: slideUpFade 0.6s ease both 0.3s;
+    }
+
+    .response-sub {
+      font-size: 1rem;
+      color: #888;
+      margin-top: 8px;
+      animation: slideUpFade 0.6s ease both 0.5s;
+    }
+
+    /* Surprise letter in overlay */
+    .surprise-letter {
+      display: none;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px 26px;
+      max-width: 380px;
+      width: 90%;
+      margin-top: 25px;
+      text-align: left;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+      animation: letterReveal 0.8s ease both 0.8s;
+    }
+
+    .surprise-letter.show { display: block; }
+
+    @keyframes letterReveal {
+      0% { transform: translateY(30px) scale(0.95); opacity: 0; }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .letter-title {
+      font-family: 'Black Han Sans', sans-serif;
+      font-size: 1.3rem;
+      color: #2E7D32;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .letter-body {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: #555;
+    }
+
+    .letter-signature {
+      text-align: right;
+      margin-top: 15px;
+      font-family: 'Jua', sans-serif;
+      font-size: 0.95rem;
+      color: #66BB6A;
+    }
+
+    .response-closing {
+      display: none;
+      font-size: 1.05rem;
+      color: #2E7D32;
+      margin-top: 20px;
+      font-weight: bold;
+      animation: slideUpFade 0.6s ease both 1.4s;
+    }
+
+    .response-closing.show { display: block; }
+
+    @keyframes responsePop {
+      0% { transform: scale(0) rotate(-20deg); }
+      100% { transform: scale(1) rotate(0); }
+    }
+
+    @keyframes slideUpFade {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Sparkle trail */
+    .sparkle-trail {
+      position: fixed;
+      pointer-events: none;
+      z-index: 3;
+      font-size: 1.2rem;
+      animation: sparkleUp 1.5s ease-out forwards;
+    }
+
+    @keyframes sparkleUp {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-80px) scale(0.3); }
+    }
+
+    .celebration-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .retry-btn {
+      display: none;
+      margin-top: 20px;
+      background: linear-gradient(135deg, #FFDAC1, #FF9AA2);
+      color: white;
+      box-shadow: 0 6px 20px rgba(255,150,180,0.3);
+      animation: slideUpFade 0.6s ease both 0.7s;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sky elements -->
+  <div class="sun"></div>
+  <div class="cloud cloud-1"></div>
+  <div class="cloud cloud-2"></div>
+  <div class="cloud cloud-3"></div>
+
+  <!-- Intro -->
+  <div class="section">
+    <div class="intro-card">
+      <div class="dday" id="ddayBadge"></div>
+      <div class="cake-icon" id="cakeIcon">🎂</div>
+      <div class="intro-label">HAPPY BIRTHDAY</div>
+      <div class="intro-name">주영아, 생일 축하해!</div>
+      <div class="intro-sub">혁진이가 초대장을 보냈어요</div>
+      <div class="scroll-hint">
+        아래로 스크롤!
+        <span class="scroll-arrow">↓</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Details -->
+  <div class="section detail-section">
+    <!-- Party Info -->
+    <div class="card" id="partyCard">
+      <div class="card-icon">🥂</div>
+      <div class="card-title">생일 파티 초대</div>
+      <div class="info-row">
+        <span class="info-emoji">📅</span>
+        <div class="info-text">
+          <div class="info-label">DATE & TIME</div>
+          <div class="info-value">2026년 3월 14일 (토) 오후 1시</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="info-emoji">👫</span>
+        <div class="info-text">
+          <div class="info-label">MEMBERS</div>
+          <div class="info-value">혁진 & 주영</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="info-emoji">🎯</span>
+        <div class="info-text">
+          <div class="info-label">MISSION</div>
+          <div class="info-value">미슐랭 코스 정복 + 생일 파티!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weather -->
+    <div class="card" id="weatherCard">
+      <div class="card-icon">🌤️</div>
+      <div class="card-title">그날 날씨는?</div>
+      <div class="weather-grid">
+        <div class="weather-item warm">
+          <div class="weather-item-icon">🌡️</div>
+          <div class="weather-item-label">최저 / 최고</div>
+          <div class="weather-item-value">4° / 14°</div>
+        </div>
+        <div class="weather-item fresh">
+          <div class="weather-item-icon">☀️</div>
+          <div class="weather-item-label">날씨</div>
+          <div class="weather-item-value">가끔 구름</div>
+        </div>
+        <div class="weather-item">
+          <div class="weather-item-icon">💧</div>
+          <div class="weather-item-label">강수 확률</div>
+          <div class="weather-item-value">낮음 ~10%</div>
+        </div>
+        <div class="weather-item">
+          <div class="weather-item-icon">💨</div>
+          <div class="weather-item-label">바람</div>
+          <div class="weather-item-value">약함</div>
+        </div>
+      </div>
+      <div class="weather-tip">
+        💡 3월 중순이라 낮엔 따뜻하지만 아직 쌀쌀해! <strong>가벼운 겉옷 하나 챙기면 딱!</strong>
+      </div>
+    </div>
+
+    <!-- Restaurant -->
+    <div class="card" id="restaurantCard">
+      <div class="card-icon">🍽️</div>
+      <div class="card-title">레스토랑 소개</div>
+      <div class="restaurant-highlight">
+        <div class="michelin-badge">⭐⭐ MICHELIN 2 Stars</div>
+        <div class="restaurant-name">스와니예</div>
+        <div class="restaurant-name-en">Soigné</div>
+        <div class="restaurant-desc">
+          셰프 이준의 컨템포러리 한식 파인다이닝.<br>
+          한국의 감성과 현대적 기법을 결합한<br>
+          "에피소드" 코스 메뉴로 유명한 곳!
+        </div>
+      </div>
+      <div class="location-card">
+        <div class="location-address">📍 강남구 강남대로 652 신사스퀘어 2F</div>
+        <div class="location-routes">
+          <div class="location-route">
+            <div class="route-icon">🚇</div>
+            <div class="route-info">
+              <div class="route-station">신사역 6번 출구</div>
+              <div class="route-detail">3호선</div>
+            </div>
+            <div class="route-time">도보 5분</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menu -->
+    <div class="card" id="menuCard">
+      <div class="card-icon">✨</div>
+      <div class="card-title">Lunch Course</div>
+      <div class="menu-card-inner">
+        <div class="menu-item">
+          <div class="menu-item-emoji">🌿</div>
+          <div class="menu-item-name">아뮤즈부쉬 3종</div>
+          <div class="menu-item-desc">계절 식재료로 시작하는 인사</div>
+        </div>
+        <div class="menu-divider"></div>
+        <div class="menu-item">
+          <div class="menu-item-emoji">🐟</div>
+          <div class="menu-item-name">전복과 김</div>
+          <div class="menu-item-desc">바다의 풍미를 담은 한 접시</div>
+        </div>
+        <div class="menu-divider"></div>
+        <div class="menu-item">
+          <div class="menu-item-emoji">🥩</div>
+          <div class="menu-item-name">한우와 반찬</div>
+          <div class="menu-item-desc">한국적 감성의 메인 디쉬</div>
+        </div>
+        <div class="menu-divider"></div>
+        <div class="menu-item menu-signature">
+          <div class="menu-signature-badge">SIGNATURE</div>
+          <div class="menu-item-emoji">🐌</div>
+          <div class="menu-item-name">서래 달팽이</div>
+          <div class="menu-item-desc">트러플 커스터드 위 버터 달팽이 — 스와니예의 전설</div>
+        </div>
+        <div class="menu-divider"></div>
+        <div class="menu-item">
+          <div class="menu-item-emoji">🍨</div>
+          <div class="menu-item-name">아이스크림 & 디저트</div>
+          <div class="menu-item-desc">달콤한 여운으로 마무리</div>
+        </div>
+      </div>
+      <div class="wine-option">
+        <div class="wine-emoji">🍷</div>
+        <div class="wine-text">
+          <div class="wine-label">WINE PAIRING OPTION</div>
+          <div class="wine-value">코스에 맞춘 와인 페어링 추가 가능!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RSVP -->
+  <div class="section rsvp-section">
+    <div class="card" id="rsvpCard">
+      <div class="card-icon">💕</div>
+      <div class="rsvp-title">같이 갈 거지?</div>
+      <div class="rsvp-sub">주영이의 대답은...?</div>
+      <div class="rsvp-buttons">
+        <button class="rsvp-btn btn-yes" onclick="respond('yes')">당연하지! 🥂</button>
+        <button class="rsvp-btn btn-no" onclick="respond('no')">음...</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Response overlay with surprise letter -->
+  <div class="response-overlay" id="responseOverlay">
+    <div class="response-emoji" id="responseEmoji"></div>
+    <div class="response-text" id="responseText"></div>
+    <div class="response-sub" id="responseSub"></div>
+
+    <!-- Surprise birthday letter -->
+    <div class="surprise-letter" id="surpriseLetter">
+      <div class="letter-title">💌 To. 주영</div>
+      <div class="letter-body">
+        주영아 생일 축하해!<br>
+        주영이 생일을 함께 보낼 수 있어서 너무 좋아 😆<br><br>
+        요즘 주영이 덕분에 너무 행복하구 😆<br>
+        앞으로 더더 행복한 나날들을 같이 보내자 💕<br><br>
+        올해도 행복하고 원하는 일들<br>
+        모두 이루길 내가 기도할게 🙏<br><br>
+        사랑해, 그리고 생일 축하해 주영아 🎂
+      </div>
+      <div class="letter-signature">주영이의 든든한 오빠, 혁진이가</div>
+    </div>
+
+    <div class="response-closing" id="responseClosing">3월 14일 1시, 스와니예에서 만나! 💚</div>
+    <button class="rsvp-btn retry-btn" id="retryBtn" onclick="closeOverlay()">다시 생각해볼게 🤔</button>
+  </div>
+
+  <canvas class="celebration-canvas" id="celebCanvas"></canvas>
+
+  <script>
+    // Petals
+    function spawnPetal() {
+      const petals = ['🌸', '🌼', '✨', '🍃', '🌷', '💐'];
+      const p = document.createElement('div');
+      p.className = 'petal';
+      p.textContent = petals[Math.floor(Math.random() * petals.length)];
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.fontSize = (Math.random() * 1 + 1) + 'rem';
+      const duration = Math.random() * 4 + 5;
+      p.style.animationDuration = duration + 's';
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), duration * 1000);
+    }
+    setInterval(spawnPetal, 1200);
+
+    // Butterflies
+    function spawnButterfly() {
+      const b = document.createElement('div');
+      b.className = 'butterfly';
+      b.textContent = '🦋';
+      b.style.top = (Math.random() * 60 + 10) + '%';
+      b.style.left = '-50px';
+      const duration = Math.random() * 10 + 12;
+      b.style.animationDuration = duration + 's';
+      document.body.appendChild(b);
+      setTimeout(() => b.remove(), duration * 1000);
+    }
+    setInterval(spawnButterfly, 6000);
+    setTimeout(spawnButterfly, 1000);
+
+    // D-day
+    const partyDate = new Date('2026-03-14');
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    partyDate.setHours(0,0,0,0);
+    const diffDays = Math.ceil((partyDate - today) / (1000 * 60 * 60 * 24));
+    const ddayBadge = document.getElementById('ddayBadge');
+    if (diffDays > 0) ddayBadge.textContent = `D-${diffDays}`;
+    else if (diffDays === 0) ddayBadge.textContent = 'D-DAY! 🎉';
+    else ddayBadge.textContent = `D+${Math.abs(diffDays)}`;
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.card').forEach(el => observer.observe(el));
+
+    // Sparkle trail
+    document.addEventListener('click', (e) => {
+      const sparkles = ['💚', '💛', '🌸', '✨', '🤍'];
+      const s = document.createElement('div');
+      s.className = 'sparkle-trail';
+      s.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
+      s.style.left = e.clientX + 'px';
+      s.style.top = e.clientY + 'px';
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 1500);
+    });
+
+    // Cake wiggle
+    document.getElementById('cakeIcon').addEventListener('click', (e) => {
+      e.stopPropagation();
+      const el = e.currentTarget;
+      el.style.animation = 'none';
+      el.offsetHeight;
+      el.style.animation = 'cakeBounce 0.3s ease-in-out 3';
+    });
+
+    // RSVP with surprise letter
+    function respond(answer) {
+      const overlay = document.getElementById('responseOverlay');
+      const emoji = document.getElementById('responseEmoji');
+      const text = document.getElementById('responseText');
+      const sub = document.getElementById('responseSub');
+      const retryBtn = document.getElementById('retryBtn');
+      const closing = document.getElementById('responseClosing');
+      const letter = document.getElementById('surpriseLetter');
+
+      if (answer === 'yes') {
+        emoji.textContent = '🎉';
+        text.textContent = '특별한 생일이 될 거야!';
+        sub.textContent = '';
+        letter.classList.add('show');
+        closing.classList.add('show');
+        retryBtn.style.display = 'none';
+        overlay.classList.remove('sad');
+        overlay.classList.add('show');
+        launchCelebration();
+      } else {
+        emoji.textContent = '🥺';
+        text.textContent = '정말...?';
+        sub.textContent = '혁진이가 슬퍼하고 있어...';
+        letter.classList.remove('show');
+        closing.classList.remove('show');
+        retryBtn.style.display = 'inline-block';
+        overlay.classList.add('show', 'sad');
+      }
+    }
+
+    function closeOverlay() {
+      const overlay = document.getElementById('responseOverlay');
+      overlay.classList.remove('show', 'sad');
+      document.getElementById('retryBtn').style.display = 'none';
+      document.getElementById('surpriseLetter').classList.remove('show');
+      document.getElementById('responseClosing').classList.remove('show');
+    }
+
+    // Confetti
+    function launchCelebration() {
+      const canvas = document.getElementById('celebCanvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const pieces = [];
+      const colors = ['#66BB6A', '#98D8A0', '#FFD700', '#FF69B4', '#87CEEB', '#FFA07A', '#DDA0DD'];
+
+      for (let i = 0; i < 130; i++) {
+        pieces.push({
+          x: canvas.width / 2,
+          y: canvas.height / 2,
+          w: Math.random() * 10 + 5,
+          h: Math.random() * 6 + 3,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rotation: Math.random() * 360,
+          rotSpeed: (Math.random() - 0.5) * 12,
+          dx: (Math.random() - 0.5) * 15,
+          dy: (Math.random() - 1) * 12,
+          gravity: 0.15,
+          opacity: 1,
+        });
+      }
+
+      let frame = 0;
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let alive = false;
+
+        pieces.forEach(p => {
+          if (p.opacity <= 0) return;
+          alive = true;
+          p.x += p.dx;
+          p.y += p.dy;
+          p.dy += p.gravity;
+          p.rotation += p.rotSpeed;
+          p.dx *= 0.99;
+          if (p.y > canvas.height + 20) p.opacity -= 0.03;
+
+          ctx.save();
+          ctx.globalAlpha = Math.max(0, p.opacity);
+          ctx.translate(p.x, p.y);
+          ctx.rotate((p.rotation * Math.PI) / 180);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+          ctx.restore();
+        });
+
+        frame++;
+        if (alive && frame < 300) requestAnimationFrame(animate);
+        else ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+      animate();
+    }
+
+    window.addEventListener('resize', () => {
+      const canvas = document.getElementById('celebCanvas');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>
