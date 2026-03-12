@@ -16,6 +16,7 @@
       background: linear-gradient(180deg, #87CEEB 0%, #B0E0E6 25%, #C8E6C9 50%, #FFF8E1 75%, #FFFDE7 100%);
       color: #444;
       position: relative;
+      word-break: keep-all;
     }
 
     /* Clouds */
@@ -268,13 +269,14 @@
       font-size: 1.8rem;
       color: #2E7D32;
       margin-bottom: 20px;
+      white-space: nowrap;
     }
 
     /* Info rows */
     .info-row {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 12px;
       padding: 14px 0;
       border-bottom: 1px dashed rgba(102,187,106,0.3);
@@ -297,6 +299,7 @@
       font-size: 1.15rem;
       color: #333;
       font-weight: bold;
+      white-space: nowrap;
     }
 
     /* Restaurant highlight */
@@ -391,6 +394,7 @@
       font-size: 0.95rem;
       font-weight: bold;
       color: #333;
+      white-space: nowrap;
     }
 
     .route-detail {
@@ -792,12 +796,12 @@
     <!-- Party Info -->
     <div class="card" id="partyCard">
       <div class="card-icon">🥂</div>
-      <div class="card-title">미리하는 생일 파티 초대</div>
+      <div class="card-title">생일 파티 초대</div>
       <div class="info-row">
         <span class="info-emoji">📅</span>
         <div class="info-text">
           <div class="info-label">DATE & TIME</div>
-          <div class="info-value">2026년 3월 14일 (토) 오후 1시</div>
+          <div class="info-value">3월 14일(토) 오후 1시</div>
         </div>
       </div>
       <div class="info-row">
@@ -856,13 +860,14 @@
         <div class="restaurant-name">스와니예</div>
         <div class="restaurant-name-en">Soigné</div>
         <div class="restaurant-desc">
-          셰프 이준의 컨템포러리 한식 파인다이닝.<br>
+          셰프 이준의 컨템포러리<br>
+          한식 파인다이닝.<br>
           한국의 감성과 현대적 기법을 결합한<br>
           "에피소드" 코스 메뉴로 유명한 곳!
         </div>
       </div>
       <div class="location-card">
-        <div class="location-address">📍 강남구 강남대로 652 신사스퀘어 2F</div>
+        <div class="location-address">📍 강남구 강남대로 652<br>신사스퀘어 2F</div>
         <div class="location-routes">
           <div class="location-route">
             <div class="route-icon">🚇</div>
