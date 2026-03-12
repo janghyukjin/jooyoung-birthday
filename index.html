@@ -536,6 +536,36 @@
       gap: 12px;
     }
 
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, rgba(102,187,106,0.15), rgba(156,204,101,0.15));
+      border: 1px solid rgba(102,187,106,0.3);
+      border-radius: 14px;
+      padding: 12px 24px;
+      cursor: pointer;
+      font-family: 'Jua', sans-serif;
+      font-size: 1.05rem;
+      color: #2E7D32;
+      transition: all 0.3s;
+      margin-bottom: 5px;
+    }
+
+    .menu-toggle:hover {
+      background: linear-gradient(135deg, rgba(102,187,106,0.25), rgba(156,204,101,0.25));
+      transform: scale(1.03);
+    }
+
+    .menu-toggle-arrow {
+      font-size: 0.8rem;
+      transition: transform 0.3s;
+    }
+
+    .menu-toggle-arrow.open {
+      transform: rotate(180deg);
+    }
+
     .wine-emoji { font-size: 2rem; }
     .wine-text { text-align: left; }
 
@@ -887,7 +917,11 @@
     <div class="card" id="menuCard">
       <div class="card-icon">✨</div>
       <div class="card-title">Lunch Course</div>
-      <div class="menu-card-inner">
+      <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+        <span>메뉴 보기</span>
+        <span class="menu-toggle-arrow" id="menuArrow">▼</span>
+      </div>
+      <div class="menu-card-inner" id="menuInner" style="display:none;">
         <div class="menu-item">
           <div class="menu-item-emoji">🌿</div>
           <div class="menu-item-name">더덕 · 회덮밥 · 누룽지</div>
@@ -1053,6 +1087,22 @@
       document.body.appendChild(s);
       setTimeout(() => s.remove(), 1500);
     });
+
+    // Menu toggle
+    function toggleMenu() {
+      const inner = document.getElementById('menuInner');
+      const arrow = document.getElementById('menuArrow');
+      const toggle = document.getElementById('menuToggle');
+      if (inner.style.display === 'none') {
+        inner.style.display = 'block';
+        arrow.classList.add('open');
+        toggle.querySelector('span').textContent = '메뉴 접기';
+      } else {
+        inner.style.display = 'none';
+        arrow.classList.remove('open');
+        toggle.querySelector('span').textContent = '메뉴 보기';
+      }
+    }
 
     // Cake wiggle
     document.getElementById('cakeIcon').addEventListener('click', (e) => {
