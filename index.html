@@ -299,7 +299,6 @@
       font-size: 1.15rem;
       color: #333;
       font-weight: bold;
-      white-space: nowrap;
     }
 
     /* Restaurant highlight */
@@ -412,6 +411,7 @@
       font-size: 0.8rem;
       font-weight: 700;
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
     /* Weather card */
@@ -815,7 +815,7 @@
         <span class="info-emoji">🎯</span>
         <div class="info-text">
           <div class="info-label">MISSION</div>
-          <div class="info-value">미슐랭 코스 정복 + 미리하는 생일 파티!</div>
+          <div class="info-value">미슐랭 코스 정복 +<br>생일 파티!</div>
         </div>
       </div>
     </div>
@@ -873,7 +873,7 @@
             <div class="route-icon">🚇</div>
             <div class="route-info">
               <div class="route-station">신사역 6번 출구</div>
-              <div class="route-detail">3호선</div>
+              <div class="route-detail">3호선 · 신분당선</div>
             </div>
             <div class="route-time">도보 5분</div>
           </div>
@@ -984,7 +984,7 @@
       <div class="letter-signature">주영이의 든든한 오빠, 혁진이가</div>
     </div>
 
-    <div class="response-closing" id="responseClosing">3월 14일 1시, 스와니예에서 만나! 💚</div>
+    <div class="response-closing" id="responseClosing"></div>
     <button class="rsvp-btn retry-btn" id="retryBtn" onclick="closeOverlay()">다시 생각해볼게 🤔</button>
   </div>
 
